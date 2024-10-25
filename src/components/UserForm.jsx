@@ -19,7 +19,7 @@ const UserForm = () => {
     }, []);
 
     const fetchUsers = () => {
-        axios.get('http://localhost:5000/users')
+        axios.get('https://users-00dg.onrender.com/users')
             .then(response => setUsers(response.data))
             .catch(error => console.error('Error fetching users:', error));
     };
@@ -34,7 +34,7 @@ const UserForm = () => {
     };
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:5000/users/${id}`)
+        axios.delete(`https://users-00dg.onrender.com/users/${id}`)
             .then(() => fetchUsers())
             .catch(error => console.error('Error deleting user:', error));
     };
@@ -43,7 +43,7 @@ const UserForm = () => {
         e.preventDefault();
 
         if (isEditing) {
-            axios.put(`http://localhost:5000/users/${formData._id}`, formData)
+            axios.put(`https://users-00dg.onrender.com/users/${formData._id}`, formData)
                 .then(() => {
                     fetchUsers();
                     resetForm();
@@ -53,7 +53,7 @@ const UserForm = () => {
         
         
         else {
-            axios.post('http://localhost:5000/users', formData)
+            axios.post('https://users-00dg.onrender.com/users', formData)
                 .then(() => {
                     fetchUsers();
                     resetForm();
